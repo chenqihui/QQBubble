@@ -7,5 +7,7 @@ QQBubble
 
 而中间的画弧也简单的使用多边形替换，主要是实现了这个动作的逻辑。
 
+(录制的效果不好，欢迎下载运行，感谢支持)
+
 ![image](https://github.com/chenqihui/QQBubble/blob/master/screenshots/QQBubble.gif)
 
