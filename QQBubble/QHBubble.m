@@ -8,6 +8,7 @@
 
 #import "QHBubble.h"
 #import "QHSlimeView.h"
+#import "QHShapeLayerView.h"
 
 #define kKGSDK_TIME_ANIMATE_DURATION 0.2
 
@@ -23,7 +24,8 @@
     CGAffineTransform _transform;
     float _distance;
     
-    QHSlimeView *_slimeV;
+//    QHSlimeView *_slimeV;
+    QHShapeLayerView *_shapeLayerV;
 }
 
 @end
@@ -77,9 +79,12 @@
         
         _distance = sqrtf(powf(_size.width, 2) + powf(_size.height, 2));
         
-        _slimeV = [[QHSlimeView alloc] initWithFrame:CGRectMake(-_size.width + _frame.size.width/2, -_size.height + _frame.size.width/2, _size.width*2, _size.height*2) bgColor:_bubbleV.backgroundColor];
-        _slimeV.clipsToBounds = NO;
-        [self insertSubview:_slimeV belowSubview:_bgBubbleV];
+//        _slimeV = [[QHSlimeView alloc] initWithFrame:CGRectMake(-_size.width + _frame.size.width/2, -_size.height + _frame.size.width/2, _size.width*2, _size.height*2) bgColor:_bubbleV.backgroundColor];
+//        _slimeV.clipsToBounds = NO;
+//        [self insertSubview:_slimeV belowSubview:_bgBubbleV];
+        
+        _shapeLayerV = [[QHShapeLayerView alloc] initWithFrame:_bubbleV.frame];
+        [self insertSubview:_shapeLayerV belowSubview:_bgBubbleV];
     }
     return self;
 }
@@ -113,10 +118,10 @@
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     _bubbleV.transform = CGAffineTransformScale(_transform, 1.1f, 1.1f);
-    if (_slimeV != nil)
+    if (_shapeLayerV != nil)
     {
         _bgBubbleV.hidden = NO;
-        _slimeV.hidden = NO;
+        _shapeLayerV.hidden = NO;
     }
 }
 
@@ -132,23 +137,23 @@
 //        if (_bubbleV.layer.borderWidth == 0)
 //            _bubbleV.layer.borderWidth = 2;
         
-        if (_slimeV != nil)
+        if (_shapeLayerV != nil)
         {
-            CGPoint pS = [_bgBubbleV convertPoint:_slimeV.center toView:_slimeV];
-            [_slimeV drawQHPicture:pS point2:pS point3:pS point4:pS];
-            _slimeV.hidden = YES;
+            CGPoint pS = [_bgBubbleV convertPoint:_shapeLayerV.center toView:_shapeLayerV];
+            [_shapeLayerV drawQHPicture:pS point2:pS point3:pS point4:pS];
+            _shapeLayerV.hidden = YES;
         }
     }else
     {
         float distance = sqrtf(powf(_bubbleV.center.x - _center.x, 2) + powf(_bubbleV.center.y - _center.y, 2));
         float d = (_distance - distance)/_distance;
         _bgBubbleV.transform = CGAffineTransformScale(_transform, d, d);
-        if (_slimeV != nil)
+        if (_shapeLayerV != nil)
         {
-            if (_slimeV.hidden)
-                _slimeV.hidden = NO;
-            CGPoint pS = [_bgBubbleV convertPoint:_slimeV.center toView:_slimeV];
-            CGPoint pE = [[touches anyObject] locationInView:_slimeV];
+            if (_shapeLayerV.hidden)
+                _shapeLayerV.hidden = NO;
+            CGPoint pS = [_bgBubbleV convertPoint:_shapeLayerV.center toView:_shapeLayerV];
+            CGPoint pE = [[touches anyObject] locationInView:_shapeLayerV];
             float xL = fabsf(pE.x - pS.x);
             float yL = fabsf(pE.y - pS.y);
             float zL = sqrtf(powf(xL, 2) + powf(yL, 2));
@@ -189,7 +194,8 @@
                 p3 = CGPointMake(pE.x + x1, pE.y - y1);
             }
             
-            [_slimeV drawQHPicture:p1 point2:p2 point3:p3 point4:p4];
+//            [_slimeV drawQHPicture:p1 point2:p2 point3:p3 point4:p4];
+            [_shapeLayerV drawQHPicture:p1 point2:p2 point3:p3 point4:p4];
         }
         
 //        if (_bubbleV.layer.borderWidth == 2)
@@ -214,15 +220,15 @@
          {
              _bubbleV.center = _center;
              
-             if (_slimeV != nil)
+             if (_shapeLayerV != nil)
              {
-                 CGPoint pS = [_bgBubbleV convertPoint:_slimeV.center toView:_slimeV];
-                 [_slimeV drawQHPicture:pS point2:pS point3:pS point4:pS];
+                 CGPoint pS = [_bgBubbleV convertPoint:_shapeLayerV.center toView:_shapeLayerV];
+                 [_shapeLayerV drawQHPicture:pS point2:pS point3:pS point4:pS];
              }
          }completion:^(BOOL finished)
          {
-             CGPoint pS = [_bgBubbleV convertPoint:_slimeV.center toView:_slimeV];
-             CGPoint pE = [[touches anyObject] locationInView:_slimeV];
+             CGPoint pS = [_bgBubbleV convertPoint:_shapeLayerV.center toView:_shapeLayerV];
+             CGPoint pE = [[touches anyObject] locationInView:_shapeLayerV];
              float xL = fabsf(pE.x - pS.x);
              float yL = fabsf(pE.y - pS.y);
              float zL = sqrtf(powf(xL, 2) + powf(yL, 2));

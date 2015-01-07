@@ -16,6 +16,7 @@
 		743BDA101A515745003A23DE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 743BDA0E1A515745003A23DE /* LaunchScreen.xib */; };
 		743BDA1C1A515745003A23DE /* QQBubbleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 743BDA1B1A515745003A23DE /* QQBubbleTests.m */; };
 		743BDA281A515858003A23DE /* QHBubble.m in Sources */ = {isa = PBXBuildFile; fileRef = 743BDA271A515858003A23DE /* QHBubble.m */; };
+		746B98FD1A5D174B00587EB4 /* QHShapeLayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 746B98FC1A5D174B00587EB4 /* QHShapeLayerView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,8 @@
 		743BDA1B1A515745003A23DE /* QQBubbleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQBubbleTests.m; sourceTree = "<group>"; };
 		743BDA261A515858003A23DE /* QHBubble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QHBubble.h; sourceTree = "<group>"; };
 		743BDA271A515858003A23DE /* QHBubble.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QHBubble.m; sourceTree = "<group>"; };
+		746B98FB1A5D174B00587EB4 /* QHShapeLayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QHShapeLayerView.h; sourceTree = "<group>"; };
+		746B98FC1A5D174B00587EB4 /* QHShapeLayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QHShapeLayerView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +98,8 @@
 				743BDA271A515858003A23DE /* QHBubble.m */,
 				7426673F1A5245DD0045C482 /* QHSlimeView.h */,
 				742667401A5245DD0045C482 /* QHSlimeView.m */,
+				746B98FB1A5D174B00587EB4 /* QHShapeLayerView.h */,
+				746B98FC1A5D174B00587EB4 /* QHShapeLayerView.m */,
 				743BDA091A515745003A23DE /* Main.storyboard */,
 				743BDA0C1A515745003A23DE /* Images.xcassets */,
 				743BDA0E1A515745003A23DE /* LaunchScreen.xib */,
@@ -234,6 +239,7 @@
 				743BDA051A515745003A23DE /* AppDelegate.m in Sources */,
 				743BDA281A515858003A23DE /* QHBubble.m in Sources */,
 				743BDA021A515745003A23DE /* main.m in Sources */,
+				746B98FD1A5D174B00587EB4 /* QHShapeLayerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
