@@ -11,3 +11,11 @@ QQBubble
 
 ![image](https://github.com/chenqihui/QQBubble/blob/master/screenshots/QQBubble.gif)
 
+beta 0.2：
+
+使用CAShapeLayer绘制，CAShapeLayer是绘制矢量图，不会由锯齿感
+
+beta 0.1：
+
+使用UIView绘制
+
